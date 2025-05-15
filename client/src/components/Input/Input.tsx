@@ -2,21 +2,23 @@ import { useState } from 'react'
 import axios from 'axios'
 import styles from './input.module.scss'
 
-interface FoodItem {
-  food: {
-    label: string
-    nutrients: {
-      ENERC_KCAL: number
-      PROCNT: number
-      FAT: number
-      CHOCDF: number
-    }
+interface Ingredient {
+  id: number
+  name: string
+  image: string
+  amount?: number
+  unit?: string
+  nutrients?: {
+    calories: number
+    protein: number
+    fat: number
+    carbs: number
   }
 }
 
 const Input = () => {
   const [query, setQuery] = useState('')
-  const [results, setResults] = useState<FoodItem[]>([])
+  const [ingredients, setIngredients] = useState<Ingredient[]>([])
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
 
@@ -29,13 +31,11 @@ const Input = () => {
 
     try {
       const response = await axios.get(
-        `http://localhost:3001/api/food/search?query=${encodeURIComponent(
-          query
-        )}`
+        `http://localhost:3001/api/search?query=${encodeURIComponent(query)}`
       )
-      setResults(response.data.hints || [])
+      setIngredients(response.data.results || [])
     } catch (err) {
-      setError('Failed to fetch food data. Please try again.')
+      setError('Failed to fetch ingredient data. Please try again.')
       console.error('Error:', err)
     } finally {
       setLoading(false)
@@ -49,7 +49,7 @@ const Input = () => {
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          placeholder="Search for food..."
+          placeholder="Search for ingredients..."
           className={styles.input}
         />
         <button type="submit" className={styles.button} disabled={loading}>
@@ -59,19 +59,28 @@ const Input = () => {
 
       {error && <div className={styles.error}>{error}</div>}
 
-      {results.length > 0 && (
+      {ingredients.length > 0 && (
         <div className={styles.results}>
-          {results.map((item, index) => (
-            <div key={index} className={styles.foodItem}>
-              <h3>{item.food.label}</h3>
-              <div className={styles.nutrients}>
-                <p>
-                  Calories: {Math.round(item.food.nutrients.ENERC_KCAL)} kcal
-                </p>
-                <p>Protein: {Math.round(item.food.nutrients.PROCNT)}g</p>
-                <p>Fat: {Math.round(item.food.nutrients.FAT)}g</p>
-                <p>Carbs: {Math.round(item.food.nutrients.CHOCDF)}g</p>
-              </div>
+          {ingredients.map((ingredient) => (
+            <div key={ingredient.id} className={styles.foodItem}>
+              <h3>{ingredient.name}</h3>
+              {ingredient.image && (
+                <img
+                  src={`https://spoonacular.com/cdn/ingredients_100x100/${ingredient.image}`}
+                  alt={ingredient.name}
+                  className={styles.ingredientImage}
+                />
+              )}
+              {ingredient.nutrients && (
+                <div className={styles.nutrients}>
+                  <p>
+                    Calories: {Math.round(ingredient.nutrients.calories)} kcal
+                  </p>
+                  <p>Protein: {Math.round(ingredient.nutrients.protein)}g</p>
+                  <p>Fat: {Math.round(ingredient.nutrients.fat)}g</p>
+                  <p>Carbs: {Math.round(ingredient.nutrients.carbs)}g</p>
+                </div>
+              )}
             </div>
           ))}
         </div>
