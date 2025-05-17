@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "Food API project with client and server",
   "scripts": {
-    "start": "concurrently \"npm run start:api\" \"npm run start:client\"",
+    "start": "concurrently \"pnpm run start:api\" \"pnpm run start:client\"",
     "start:api": "node api/server.js",
-    "start:client": "cd client && npm start",
+    "start:client": "cd client && pnpm start",
     "dev": "nodemon api/server.js"
   },
   "dependencies": {
