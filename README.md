@@ -30,7 +30,7 @@ cd food-api-project
 2. Install dependencies for all parts of the application:
 
 ```bash
-npm run install:all
+pnpm install:all
 ```
 
 3. Create a `.env` file in the `api` directory with your Spoonacular API key:
@@ -45,7 +45,7 @@ PORT=3001
 To run both the client and server concurrently:
 
 ```bash
-npm start
+pnpm start
 ```
 
 Or run them separately:
@@ -58,11 +58,10 @@ Or run them separately:
 The server provides the following endpoints:
 
 - `GET /api/search?query=<search-term>` - Search for recipes
-- `GET /api/recipe/:id` - Get detailed information about a specific recipe
 
 ## Technologies Used
 
 - Frontend: React.js
 - Backend: Node.js, Express
 - API: Spoonacular Food API
-- Package Management: npm
+- Package Management: pnpm
