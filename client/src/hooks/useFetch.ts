@@ -3,29 +3,27 @@ import axios from 'axios'
 
 const BASE_URL = 'http://localhost:3001/api'
 
-export interface Ingredient {
+export interface Food {
   id: number
-  name: string
+  title: string
   image: string
-  amount?: number
-  unit?: string
-  nutrients?: {
-    calories: number
-    protein: number
-    fat: number
-    carbs: number
+  servings: number
+  nutrition: {
+    nutrients: {
+      amount: number
+    }[]
   }
 }
 
 interface UseIngredientsReturn {
-  foodData: Ingredient[]
+  foodData: Food[]
   loading: boolean
   error: string
   searchIngredients: (query: string) => Promise<void>
 }
 
 export function useFetch(): UseIngredientsReturn {
-  const [foodData, setFoodData] = useState<Ingredient[]>([])
+  const [foodData, setFoodData] = useState<Food[]>([])
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
 

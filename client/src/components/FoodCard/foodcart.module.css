@@ -1,0 +1,28 @@
+.foodItem {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  width: 400px;
+  height: 330px;
+}
+
+.ingredientImage {
+  width: 250px;
+  height: 250px;
+  object-fit: contain;
+}
+
+.imageContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.foodInfo {
+  text-align: center;
+}
+
+.foodTitle {
+  font-weight: 600;
+  text-align: center;
+}

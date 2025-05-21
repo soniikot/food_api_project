@@ -1,4 +1,4 @@
-import Search from './Search/Search'
+import { Search } from './Search/Search'
 import styles from './app.module.css'
 
 function App() {
