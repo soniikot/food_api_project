@@ -45,6 +45,11 @@ export const Search = () => {
     setShowDropdown(false);
     searchIngredients(searchQuery);
   };
+
+  // Debug: log recent searches
+  console.log('Recent searches:', recentSearches);
+  console.log('Show dropdown:', showDropdown);
+
   return (
     <div className={styles.container}>
       <form onSubmit={handleSearch} className={styles.searchBox}>
@@ -57,17 +62,21 @@ export const Search = () => {
             placeholder="Search for ingredients..."
             className={styles.searchInput}
           />
-          {showDropdown && recentSearches.length > 0 && (
+          {showDropdown && (
             <div className={styles.dropdown}>
-              {recentSearches.map((search) => (
-                <div
-                  key={search.id}
-                  onClick={() => handleRecentSearchClick(search.search_query)}
-                  className={styles.dropdownItem}
-                >
-                  {search.search_query}
-                </div>
-              ))}
+              {recentSearches.length > 0 ? (
+                recentSearches.map((search) => (
+                  <div
+                    key={search.id}
+                    onClick={() => handleRecentSearchClick(search.search_query)}
+                    className={styles.dropdownItem}
+                  >
+                    {search.search_query}
+                  </div>
+                ))
+              ) : (
+                <div className={styles.dropdownItem}>No recent searches</div>
+              )}
             </div>
           )}
         </div>

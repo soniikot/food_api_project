@@ -1,0 +1,49 @@
+:root {
+  /* Colors */
+  --primary-color: #4a90e2;
+  --primary-hover: #357abd;
+  --border-color: #ccc;
+  --background-white: white;
+  --background-light: #f5f5f5;
+  --text-color: #333;
+  --error-color: red;
+  --disabled-color: #ccc;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --focus-shadow: rgba(74, 144, 226, 0.2);
+
+  /* Spacing */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 10px;
+  --spacing-lg: 12px;
+  --spacing-xl: 16px;
+  --spacing-2xl: 20px;
+  --spacing-3xl: 24px;
+  --spacing-4xl: 40px;
+
+  /* Border radius */
+  --border-radius-sm: 8px;
+  --border-radius-lg: 20px;
+
+  /* Font sizes */
+  --font-size-base: 16px;
+  --font-size-sm: 0.9rem;
+  --font-size-lg: 1.2rem;
+
+  /* Font weights */
+  --font-weight-normal: 400;
+  --font-weight-semibold: 600;
+
+  /* Dimensions */
+  --input-width: 300px;
+  --dropdown-max-height: 200px;
+  --container-max-width: 800px;
+
+  /* Z-index */
+  --z-dropdown: 2;
+  --z-sticky: 10;
+
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+}

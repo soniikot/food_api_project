@@ -1,15 +1,14 @@
 .foodItem {
+  margin: 8px;
   border: 1px solid #ccc;
-  padding: 10px;
-  margin: 10px;
   border-radius: 5px;
-  width: 400px;
-  height: 330px;
+  width: 250px;
+  height: 300px;
 }
 
 .ingredientImage {
-  width: 250px;
-  height: 250px;
+  width: 200px;
+  height: 200px;
   object-fit: contain;
 }
 

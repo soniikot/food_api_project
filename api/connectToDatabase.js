@@ -56,7 +56,7 @@ export const saveSearch = (query, data) => {
 
 export const getRecentSearches = () => {
   return new Promise((resolve, reject) => {
-    const sql = `SELECT search_id, search_query, search_date FROM past_searches ORDER BY search_date DESC LIMIT 5`;
+    const sql = `SELECT id, search_query, search_date FROM past_searches ORDER BY search_date DESC LIMIT 5`;
     DB.all(sql, [], (err, rows) => {
       if (err) {
         reject(err);
