@@ -2,11 +2,15 @@ import { useState, useEffect, useRef } from 'react';
 import styles from './search.module.css';
 import { useFetch, Food } from '../../hooks/useFetch';
 import { FoodCard } from '../FoodCard/FoodCard';
+import { Dropdown } from '../Dropdown/Dropdown';
+import { useClickOutside } from '../../hooks/useClickOutside';
 
 export const Search = () => {
   const [query, setQuery] = useState('');
   const [showDropdown, setShowDropdown] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  useClickOutside(dropdownRef, () => setShowDropdown(false));
+
   const {
     foodData,
     loading,
@@ -20,20 +24,6 @@ export const Search = () => {
     getRecentSearches();
   }, [getRecentSearches]);
 
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (
-        dropdownRef.current &&
-        !dropdownRef.current.contains(event.target as Node)
-      ) {
-        setShowDropdown(false);
-      }
-    };
-
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, []);
-
   const handleSearch = async (e: React.FormEvent) => {
     e.preventDefault();
     setShowDropdown(false);
@@ -45,10 +35,6 @@ export const Search = () => {
     setShowDropdown(false);
     searchIngredients(searchQuery);
   };
-
-  // Debug: log recent searches
-  console.log('Recent searches:', recentSearches);
-  console.log('Show dropdown:', showDropdown);
 
   return (
     <div className={styles.container}>
@@ -62,23 +48,11 @@ export const Search = () => {
             placeholder="Search for ingredients..."
             className={styles.searchInput}
           />
-          {showDropdown && (
-            <div className={styles.dropdown}>
-              {recentSearches.length > 0 ? (
-                recentSearches.map((search) => (
-                  <div
-                    key={search.id}
-                    onClick={() => handleRecentSearchClick(search.search_query)}
-                    className={styles.dropdownItem}
-                  >
-                    {search.search_query}
-                  </div>
-                ))
-              ) : (
-                <div className={styles.dropdownItem}>No recent searches</div>
-              )}
-            </div>
-          )}
+          <Dropdown
+            isVisible={showDropdown}
+            recentSearches={recentSearches}
+            onSearchSelect={handleRecentSearchClick}
+          />
         </div>
         <button type="submit" className={styles.button} disabled={loading}>
           {loading ? 'Searching...' : 'Search'}
