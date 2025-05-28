@@ -1,7 +1,7 @@
-import Search from './components/Search/Search'
-import styles from './App.module.css'
+import { Search } from './components/Search/Search';
+import styles from './App.module.css';
 
-function App() {
+export const App = () => {
   return (
     <div className={styles.app}>
       <header className={styles.header}>
@@ -13,7 +13,5 @@ function App() {
         <Search />
       </main>
     </div>
-  )
-}
-
-export default App
+  );
+};

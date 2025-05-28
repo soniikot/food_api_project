@@ -50,8 +50,8 @@ pnpm start
 
 Or run them separately:
 
-- API server: `npm run start:api`
-- Client: `npm run start:client`
+- API server: `pnpm run start:api`
+- Client: `pnpm run start:client`
 
 ## API Endpoints
 

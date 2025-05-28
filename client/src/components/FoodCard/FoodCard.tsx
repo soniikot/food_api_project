@@ -1,8 +1,8 @@
-import { Food } from 'hooks/useFetch'
-import styles from './FoodCart.module.css'
+import { Food } from 'hooks/useFetch';
+import styles from './FoodCart.module.css';
 
 interface FoodCardProps {
-  food: Food
+  food: Food;
 }
 
 export const FoodCard: React.FC<FoodCardProps> = ({ food }) => {
@@ -25,5 +25,5 @@ export const FoodCard: React.FC<FoodCardProps> = ({ food }) => {
         </div>
       )}
     </div>
-  )
-}
+  );
+};
