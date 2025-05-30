@@ -4,11 +4,14 @@ import { useFetch, Food } from '../../hooks/useFetch';
 import { FoodCard } from '../FoodCard/FoodCard';
 import { Dropdown } from '../Dropdown/Dropdown';
 import { useClickOutside } from '../../hooks/useClickOutside';
+import { RecipeModal } from 'components/Modal/Modal';
 
 export const Search = () => {
   const [query, setQuery] = useState('');
   const [showDropdown, setShowDropdown] = useState(false);
+  const [selectedFood, setSelectedFood] = useState<Food | null>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const [openModal, setOpenModal] = useState(false);
   useClickOutside(dropdownRef, () => setShowDropdown(false));
 
   const {
@@ -33,7 +36,6 @@ export const Search = () => {
   const handleRecentSearchClick = (searchQuery: string) => {
     setQuery(searchQuery);
     setShowDropdown(false);
-    searchIngredients(searchQuery);
   };
 
   return (
@@ -64,10 +66,22 @@ export const Search = () => {
       {foodData.length > 0 && (
         <div className={styles.results}>
           {foodData.map((food: Food) => (
-            <FoodCard key={food.id} food={food} />
+            <FoodCard
+              key={food.id}
+              food={food}
+              onClick={() => {
+                setSelectedFood(food);
+                setOpenModal(true);
+              }}
+            />
           ))}
         </div>
       )}
+      <RecipeModal
+        openModal={openModal}
+        content={selectedFood ?? ({} as Food)}
+        closeModal={() => setOpenModal(false)}
+      />
     </div>
   );
 };

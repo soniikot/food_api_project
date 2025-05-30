@@ -8,6 +8,7 @@ export interface Food {
   title: string;
   image: string;
   servings: number;
+  summary: string;
   nutrition: {
     nutrients: {
       amount: number;

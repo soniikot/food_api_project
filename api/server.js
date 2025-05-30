@@ -28,7 +28,7 @@ app.get("/api/search", async (req, res) => {
       return res.status(400).json({ error: "Query parameter is required" });
     }
 
-    const apiUrl = `https://api.spoonacular.com/recipes/complexSearch?query=${query}&number=${numberOfRecipes}&sort=calories&sortDirection=asc&apiKey=${apiKey}&addRecipeInformation=true`;
+    const apiUrl = `https://api.spoonacular.com/recipes/complexSearch?query=${query}&number=${numberOfRecipes}&sort=calories&sortDirection=asc&apiKey=${apiKey}&addRecipeInformation=true&instructionsRequired=true`;
 
     const response = await axios.get(apiUrl);
 
