@@ -10,10 +10,7 @@ export const FoodCard: React.FC<FoodCardProps> = ({ food }) => {
     <div key={food.id} className={styles.foodItem}>
       <div className={styles.foodInfo}>
         <h3 className={styles.foodTitle}>{food.title}</h3>
-        <p>
-          Calories: {food.nutrition.nutrients[0].amount} kcal per{' '}
-          {food.servings} servings
-        </p>
+        <p>Calories: {Math.round(food.nutrition.nutrients[0].amount)} kcal</p>
       </div>
       {food.image && (
         <div className={styles.imageContainer}>

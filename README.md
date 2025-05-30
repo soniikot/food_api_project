@@ -23,7 +23,7 @@ food-api-project/
 1. Clone the repository:
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/soniikot/food_api_project
 cd food-api-project
 ```
 
@@ -53,15 +53,12 @@ Or run them separately:
 - API server: `pnpm run start:api`
 - Client: `pnpm run start:client`
 
-## API Endpoints
-
-The server provides the following endpoints:
-
-- `GET /api/search?query=<search-term>` - Search for recipes
-
 ## Technologies Used
 
 - Frontend: React.js
+- Styling: CSS Modules
 - Backend: Node.js, Express
 - API: Spoonacular Food API
 - Package Management: pnpm
+- Database: sqllite3
+- Testing: Vitest

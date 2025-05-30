@@ -1,29 +1,27 @@
+@import './styles/variables.css';
+
 .app {
-  min-height: 100vh;
-  background-color: #f3f4f6;
+  background-color: var(--background-light);
 }
 
 .header {
-  background-color: white;
-  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1);
+  background-color: var(--background-white);
+}
+
+.subtitle {
+  text-align: center;
+  margin: 0 auto;
+  padding: var(--spacing-2xl);
 }
 
 .headerContent {
-  max-width: 80rem;
+  text-align: center;
   margin: 0 auto;
-  padding: 1.5rem 1rem;
+  padding: var(--spacing-2xl);
 }
 
 .title {
-  font-size: 1.875rem;
-  font-weight: 700;
-  color: #111827;
-}
-
-.main {
-  max-width: 80rem;
-  margin: 0 auto;
-  padding: 1.5rem;
+  font-weight: var(--font-weight-bold);
 }
 
 @media (min-width: 640px) {

@@ -1,8 +1,6 @@
-![reactjs-vite-tailwindcss-boilerplate](https://user-images.githubusercontent.com/16243531/217138979-b854309c-4742-4275-a705-f9fec5158217.jpg)
+# Recipe Search App
 
-# React Tailwindcss Boilerplate build with Vite
-
-This is a boilerplate build with Vite, React 18, TypeScript, Vitest, Testing Library, TailwindCSS 3, Eslint and Prettier.
+This is a recipe search app build with Vite, React 18, TypeScript, Vitest, Testing Library, Eslint and Prettier.
 
 ## What is inside?
 
@@ -13,25 +11,12 @@ This project uses many tools like:
 - [TypeScript](https://www.typescriptlang.org)
 - [Vitest](https://vitest.dev)
 - [Testing Library](https://testing-library.com)
-- [Tailwindcss](https://tailwindcss.com)
 - [Eslint](https://eslint.org)
 - [Prettier](https://prettier.io)
 
 ## Getting Started
 
 ### Install
-
-Create the project.
-
-```bash
-pnpm dlx degit joaopaulomoraes/reactjs-vite-tailwindcss-boilerplate my-app
-```
-
-Access the project directory.
-
-```bash
-cd my-app
-```
 
 Install dependencies.
 

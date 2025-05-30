@@ -1,7 +1,9 @@
+@import '../../styles/variables.css';
+
 .foodItem {
-  margin: 8px;
-  border: 1px solid #ccc;
   border-radius: 5px;
+  border: 1px solid var(--border-color);
+  padding: var(--spacing-sm);
   width: 250px;
   height: 300px;
 }

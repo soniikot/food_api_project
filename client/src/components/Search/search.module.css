@@ -1,24 +1,53 @@
 .container {
-  padding: var(--spacing-2xl);
+  padding: var(--spacing-md);
 }
 
 .searchBox {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   gap: var(--spacing-md);
-  margin: var(--spacing-4xl);
+  margin: var(--spacing-lg);
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: var(--spacing-2xl);
+  }
+
+  .searchBox {
+    flex-direction: row;
+    justify-content: center;
+    margin: var(--spacing-4xl);
+    max-width: none;
+  }
 }
 
 .searchInputContainer {
   position: relative;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .searchInputContainer {
+    width: auto;
+  }
 }
 
 .searchInput {
-  padding: var(--spacing-lg) var(--spacing-3xl);
+  padding: var(--spacing-lg) var(--spacing-xl);
   border: 1px solid var(--border-color);
   border-radius: var(--border-radius-sm);
-  width: var(--input-width);
+  width: 100%;
   font-size: var(--font-size-base);
+  box-sizing: border-box;
+}
+
+/* Tablet and larger screens */
+@media (min-width: 768px) {
+  .searchInput {
+    width: var(--input-width);
+    padding: var(--spacing-lg) var(--spacing-3xl);
+  }
 }
 
 .searchInput:focus {
@@ -26,8 +55,9 @@
   border-color: var(--primary-color);
   box-shadow: 0 0 0 2px var(--focus-shadow);
 }
+
 .button {
-  padding: var(--spacing-lg) var(--spacing-3xl);
+  padding: var(--spacing-lg) var(--spacing-xl);
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-semibold);
   color: var(--background-white);
@@ -36,6 +66,15 @@
   border-radius: var(--border-radius-sm);
   cursor: pointer;
   transition: background-color var(--transition-normal);
+  width: 200px;
+  align-self: center;
+}
+
+@media (min-width: 768px) {
+  .button {
+    width: auto;
+    padding: var(--spacing-lg) var(--spacing-3xl);
+  }
 }
 
 .button:hover {
@@ -50,9 +89,17 @@
 .results {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--spacing-2xl);
+  gap: var(--spacing-lg);
   justify-content: center;
-  padding-bottom: var(--spacing-2xl);
+  padding: var(--spacing-md) 0 var(--spacing-2xl);
+}
+
+/* Tablet and larger screens */
+@media (min-width: 768px) {
+  .results {
+    gap: var(--spacing-2xl);
+    padding-bottom: var(--spacing-2xl);
+  }
 }
 
 .error {
