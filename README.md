@@ -30,7 +30,7 @@ cd food-api-project
 2. Install dependencies for all parts of the application:
 
 ```bash
-pnpm install:all
+npm install
 ```
 
 3. Create a `.env` file in the `api` directory with your Spoonacular API key:
@@ -58,6 +58,6 @@ Or run them separately:
 - Styling: CSS Modules
 - Backend: Node.js, Express
 - API: Spoonacular Food API
-- Package Management: pnpm
+- Package Management: npm
 - Database: sqllite3
-- Testing: Vitest
+- Testing: Vitest, React Testing Library
