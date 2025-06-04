@@ -37,7 +37,6 @@ pnpm install:all
 
 ```
 SPOONACULAR_API_KEY=your_api_key_here
-PORT=3001
 ```
 
 ## Running the Application
