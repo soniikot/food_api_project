@@ -45,13 +45,13 @@ PORT=3001
 To run both the client and server concurrently:
 
 ```bash
-pnpm start
+npm run dev
 ```
 
 Or run them separately:
 
-- API server: `pnpm run start:api`
-- Client: `pnpm run start:client`
+  Server:  "dev:backend": "cd backend && npm run dev",
+  Client  "dev:frontend": "cd frontend && npm run dev",
 
 ## Technologies Used
 
